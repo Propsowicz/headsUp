@@ -2,18 +2,20 @@ from django.db import models
 from player.models import Player, GenericAvatar
 
 class GameRoom(models.Model):
-    pass
+    player = models.ManyToManyField(Player)
+    is_started = models.BooleanField(default=False)
+    is_ended = models.BooleanField(default=False)
 
     def __str__(self):
         return self.id
 
-class Score(models.Model):
-    game_room = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
-    player = models.ManyToManyField(Player)
-    score = models.IntegerField()
+# class Score(models.Model):
+#     game_room = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
+#     player = models.ManyToManyField(Player)
+#     score = models.IntegerField()
 
-    def __str__(self):
-        return f'{self.game_room} || {self.player} || {self.score}'
+#     def __str__(self):
+#         return f'{self.game_room} || {self.player} || {self.score}'
 
 class GameRound(models.Model):
     game_room = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
