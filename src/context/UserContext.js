@@ -28,7 +28,9 @@ export const UserContextProvider = ({children}) => {
     }, [player_id])
 
     let contextData = {
-        createUser: createUser
+        createUser: createUser,
+
+        player_id: player_id
     }
 
 

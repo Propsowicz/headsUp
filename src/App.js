@@ -21,8 +21,8 @@ function App() {
           <Header />
           <Routes>
             <Route path='/' element={<HomePage />}/>
-            <Route path='/:game_id/lobby' element={<LoobyRoom />}/>
-            <Route path='/:game_id/game' element={<GameRoom />}/>      
+            <Route path='/:game_id/lobby/' element={<LoobyRoom />}/>
+            <Route path='/:game_id/game/' element={<GameRoom />}/>      
           </Routes>
         </UserContextProvider>
       </BrowserRouter>

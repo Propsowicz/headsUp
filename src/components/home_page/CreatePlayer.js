@@ -9,7 +9,6 @@ const CreatePlayer = () => {
         <h4>Stwórz gracza:</h4>
         <form onSubmit={createUser}>
             <select defaultValue={'female'} name='sex'>
-                {/* <option selected>Wybierz płeć</option> */}
                 <option value="female">Kobieta</option>
                 <option value="male">Mężczyzna</option>            
             </select>
