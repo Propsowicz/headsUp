@@ -7,7 +7,7 @@ class GameRoom(models.Model):
     is_ended = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.id
+        return f'{self.id}'
 
 # class Score(models.Model):
 #     game_room = models.ForeignKey(GameRoom, on_delete=models.CASCADE)
