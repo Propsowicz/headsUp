@@ -14,8 +14,7 @@ import {UserContextProvider} from '../src/context/UserContext'
 
 function App() {
   return (
-    <div>
-      
+    <div>      
       <BrowserRouter>
         <UserContextProvider>
           <Header />

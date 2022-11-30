@@ -5,7 +5,7 @@ export const UserContext = createContext()
 
 
 export const UserContextProvider = ({children}) => {
-    let [player_id, set_player_id] = useState(localStorage.getItem('player_id') ? localStorage.getItem('player_id'): [])
+    let [player_id, set_player_id] = useState(localStorage.getItem('player_id') ? localStorage.getItem('player_id'): false)
 
     let createUser = async (e) => {
         e.preventDefault()
@@ -20,11 +20,9 @@ export const UserContextProvider = ({children}) => {
         })
         let data = await response.json()
         localStorage.setItem('player_id', data.id)
-        set_player_id(data.id)
     }
 
     useEffect(() => {
-        console.log(player_id)        
     }, [player_id])
 
     let contextData = {

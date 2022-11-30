@@ -5,8 +5,7 @@ const ChatArea = (props) => {
 
   return (
     <div>
-        <textarea value={props.msg} style={{'width': '350px'}}/>
-        {/* <p>{props.msg}</p> */}
+        <textarea value={props.msg} style={{'width': '550px', 'height': '500px'}}/>
     </div>
   )
 }
