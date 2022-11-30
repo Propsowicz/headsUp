@@ -85,8 +85,11 @@ class LobbyRoom(AsyncWebsocketConsumer):
 
         if text_data_json['header'] == 'CONNECTED':
             answer_msg = f"{player_nickname} dołączył/a do pokoju.."
-        else:
+        elif text_data_json['header'] == 'MESSAGE':
             answer_msg = f'{player_nickname}: {text_data_json["msg"]}'
+        elif text_data_json['header'] == 'START':
+            await self.start_game()
+            answer_msg = 'game is starting..'
 
         await self.channel_layer.group_send(
             self.room_group_name,
@@ -103,3 +106,10 @@ class LobbyRoom(AsyncWebsocketConsumer):
     @database_sync_to_async
     def get_player_nickname(self, player_id):
         return Player.objects.get(id=player_id).nickname
+
+    @database_sync_to_async
+    def start_game(self):
+        game_room = GameRoom.objects.get(id=self.room_name)
+        game_room.is_started = True
+        game_room.save()
+        

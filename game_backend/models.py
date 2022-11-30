@@ -43,3 +43,9 @@ class Answer(models.Model):
 
     def __str__(self):
         return f'{self.question} || {self.player} || {self.answer}'
+
+class GuessCharacter(models.Model):
+    name = models.CharField(max_length=155)
+
+    def __start__(self):
+        return self.name
